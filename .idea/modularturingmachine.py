@@ -12,35 +12,52 @@ def extendStringLeft(str):
     return str
 
 def Rsharp(str):
-    "finds the right most # place"
-    for head in range(len(str)):
-        print (str[-(head+1)])
-        if (str[-(head+1)].isalnum()):
+    "finds the first # after the string, returns int"
+    for index in range(len(str)):
+        print (str[-(index+1)])
+        if (str[-(index+1)].isalnum()):
             break
-    print (len(str)-(head))
-    return len(str)-(head)
+    print (len(str)-(index))
+    return len(str)-(index)
 
 def Lsharp(str):
-    for head in range(len(str)):
-        print (str[head])
-        if (str[head].isalnum()):
+    "finds the first # before the String, returns int"
+    for index in range(len(str)):
+        print (str[index])
+        if (str[index].isalnum()):
             break
-    print(head)
-    return head
+    print(index)
+    return index
 
-def R(str):
-    global head
+def R(str,head):
+    "shifts the head to the right and adds # if endofstring "
+    # global head
     if (head == (len(str)-1)):
-
         str = extendStringRight(str)
     head += 1
-    return str
+    return str,head
 
-def L(str):
-    global head
+def L(str,head):
+    "shifts the head to the left and adds # if endofString"
+    # global head
     if (head == 0):
         str = extendStringLeft(str)
-    return str
+    else:
+        head -= 1
+    return str,head
+
+def Rnsharp(str,n):
+    "finds the nth # after the string, returns int"
+    index = Rsharp(str)
+    for i in range(n):
+        index = R(str,index)
+
+
+
+string = input("what is the string? ")
+temp = L(string,0)
+print(temp[0])
+
 
 # def R():
 
@@ -59,9 +76,4 @@ def L(str):
 # String = extendStringRight(String)
 # Rsharp(String)
 
-test = R(test)
-print (test)
 
-#trying different things 2.0
-#maybe i should remove the commit tag 2
-#did it push
