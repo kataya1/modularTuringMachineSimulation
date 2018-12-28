@@ -61,5 +61,5 @@ def L(str):
 
 test = R(test)
 print (test)
-print(head)
-print(head)
+
+#trying different things
